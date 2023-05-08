@@ -1,12 +1,11 @@
 import express from "express";
+import homeControlller from "../controllers/homeControlller";
 
 let router = express.Router();
 
 let initwebRoutes = (app) => {
 
-    router.get('/', (req, res) => {
-        return res.send('hello world nguyen ken')
-    });
+    router.get('/', homeControlller.getHomePage);
 
     return app.use("/", router);
 }
