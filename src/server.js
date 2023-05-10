@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser"; // thư viện hỗ trợ cho việc lấy tham số từ client sử dụng cho chúng ta
 import viewEngine from "./config/viewEngine";
 import initwebRoutes from "./router/web";
+import connectDB from "./config/connectDB"
 require('dotenv').config(); // giúp chạy câu lệnh 17
 
 let app = express();
@@ -13,6 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 viewEngine(app);
 initwebRoutes(app);
+
+connectDB();
 
 let port = process.env.PORT || 6969;
 
